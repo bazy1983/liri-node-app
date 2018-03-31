@@ -4,6 +4,7 @@ var keys = require("./keys.js")
 var Twitter = require('twitter');
 var Spotify = require('node-spotify-api');
 var omdbApi = require('omdb-client');
+var fs = require("fs");
 
 
 
@@ -11,26 +12,19 @@ var myCommand = process.argv;
 
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
-
+var query = myCommand[3] // search query
 
 console.log ("You can ask Liri: my-tweets, spotify, movie")
 
 
+// record search log
+function writeToFile (x){
+    fs.appendFile('log.txt', x, function (err) {
+        if (err) return console.log(err);
+        console.log('Appended!');
+     });
 
-// var http = require("http");
-// var port = 3000;
-// var server = http.createServer(function(request, response){
-//     console.log("Got Request");
-//     response.end(allTweets); 
-// //server end
-// });
-// server.listen(port, function(error){
-//     if(error) {
-//         return console.log("something went wrong", error)
-//     };
-//     console.log("server is listening on port: ", port);
-// });
-
+}
 
 
 // switch between questions
@@ -41,11 +35,16 @@ switch (myCommand[2]) {
     break;
 
     case ("spotify"): 
-    spotifyCommand();
+    spotifyCommand(query);
     break;
 
     case ("movie"):
-    movieCommand()
+    movieCommand(query)
+    break;
+
+    case("file"):
+    readFile();
+    break;
 }
 
 function tweetCommand() {
@@ -57,6 +56,8 @@ function tweetCommand() {
         //console.log(tweets);
         for (var i = 0; i<tweets.length ; i++){
             console.log(tweets[i].user.name + ": "+ tweets[i].text +"; " +tweets[i].created_at);
+            var log = tweets[i].user.name + ": "+ tweets[i].text +"; " +tweets[i].created_at + "\n";
+            writeToFile(log);
         }
       } else {
           console.log("Got an error: "+ error)
@@ -64,8 +65,8 @@ function tweetCommand() {
     });
 }
 
-function spotifyCommand() {
-    spotify.search({ type: 'track', query: 'hello - lionel', limit: 1 }, function(err, data) {
+function spotifyCommand(x) {
+    spotify.search({ type: 'track', query: x, limit: 1 }, function(err, data) {
         if (err) {
           return console.log('Error occurred: ' + err);
         }
@@ -78,23 +79,42 @@ function spotifyCommand() {
       });
 }
 
-function movieCommand (){
+function movieCommand (x){
  
 var params = {
     apiKey: 'bdd0edf1',
-    title: 'coco',
+    title: x,
     incTomatoes: true
 }
 omdbApi.get(params, function(err, data) {
     // process response...
     //console.log(data)
-    console.log(`* Title: ${data.Title}.
-    * Year: ${data.Year}.
-    * IMDB Rating: ${data.imdbRating}.
-    * Rotten Tomatoes:${data.Ratings[1].Value}.
-    * Country: ${data.Country}.
-    * Language: ${data.Language}.
-    * Plot: ${data.Plot}.
-    * Actors: ${data.Actors}.`)
+    console.log(`Title: ${data.Title}.
+    Year: ${data.Year}.
+    IMDB Rating: ${data.imdbRating}.
+    Rotten Tomatoes:${data.Ratings[1].Value}.
+    Country: ${data.Country}.
+    Language: ${data.Language}.
+    Plot: ${data.Plot}.
+    Actors: ${data.Actors}.`);
+    
+
+    // writing to log file
+    var log = `Title: ${data.Title}.
+    Year: ${data.Year}.
+    IMDB Rating: ${data.imdbRating}.
+    Rotten Tomatoes:${data.Ratings[1].Value}.
+    Country: ${data.Country}.
+    Language: ${data.Language}.
+    Plot: ${data.Plot}.
+    Actors: ${data.Actors}.` + "\n";
+     writeToFile(log);
+    
 });
+}
+
+function readFile (){
+    fs.readFile("random.txt", "utf8", function(err, data) {
+        console.log(data)
+    });
 }
