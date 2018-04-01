@@ -27,3 +27,7 @@ Command: spotify firework; is created at 04/01/2018 15:41:41
 Command: spotify firewoRk; is created at 04/01/2018 15:42:24
 Command: do ; is created at 04/01/2018 15:42:55
 Command: my-tweets ; is created at 04/01/2018 15:43:41
+Command: spotify happy; is created at 04/01/2018 15:46:10
+Command: spotifd ; is created at 04/01/2018 15:47:02
+Command: spotify without; is created at 04/01/2018 15:50:13
+Command: spotify without-you; is created at 04/01/2018 15:50:26

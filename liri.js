@@ -25,11 +25,11 @@ console.clear();
 console.log (chalk.inverse("You can ask Liri: my-tweets, spotify song-name, movie movie-name, do"));
 
 //validation to prevent user from sending an empty request!!
-// if (liriCommand === "spotify" || liriCommand  === "movie" && query == undefined){
-//     console.clear();
-//     console.log(chalk.red(`Please search something. ie: ${liriCommand} something`))
-//     process.exit();
-// }
+if ((liriCommand === "spotify" || liriCommand  === "movie") && query == undefined){
+    console.clear();
+    console.log(chalk.red(`Please search something. ie: ${liriCommand} something`))
+    process.exit();
+}
 
 //validation to prevent user from using spaces when querying stuff!!
 if (myCommand[4] != undefined){
@@ -50,8 +50,6 @@ function writeToFile (x , y){ //x is the command and y is the query
         console.log(chalk.red('Command Saved!'));
      });
 }
-
-writeToFile(liriCommand, query)
 
 
 function tweetCommand(y) {
@@ -134,22 +132,26 @@ function doSomething (x , y){
     
         case ("my-tweets"): 
         tweetCommand(y);
+        writeToFile(x, y);
         break;
     
         case ("spotify"): 
         spotifyCommand(y);
+        writeToFile(x, y);
         break;
     
         case ("movie"):
-        movieCommand(y)
+        movieCommand(y);
+        writeToFile(x, y);
         break;
     
         case("do"):
         readFile();
+        writeToFile(x, y);
         break;
 
         default:
-        console.log(`Please enter a correct command`)
+        console.log(`Please enter a correct command!`)
     }
 
 }
