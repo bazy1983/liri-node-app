@@ -1,21 +1,29 @@
-Title: Ted.
-    Year: 2012.
-    IMDB Rating: 7.0.
-    Rotten Tomatoes:67%.
-    Country: USA.
-    Language: English, Japanese.
-    Plot: John Bennett, a man whose childhood wish of bringing his teddy bear to life came true, now must decide between keeping the relationship with the bear or his girlfriend, Lori..
-    Actors: Mark Wahlberg, Mila Kunis, Seth MacFarlane, Joel McHale.
-Title: Ted 2.
-    Year: 2015.
-    IMDB Rating: 6.3.
-    Rotten Tomatoes:46%.
-    Country: USA.
-    Language: English.
-    Plot: Newlywed couple Ted and Tami-Lynn want to have a baby, but in order to qualify to be a parent, Ted will have to prove he's a person in a court of law..
-    Actors: Mark Wahlberg, Seth MacFarlane, Amanda Seyfried, Jessica Barth.
-Mohammed Hameed: testing twitter api with node JS; Fri Mar 30 21:25:02 +0000 2018
-Mohammed Hameed: Hello Twitter! #myfirstTweet; Fri Mar 30 21:16:13 +0000 2018
-Mohammed Hameed: @UnboxTherapy @GoDaddy let's give it a shot!
-OnePlus 5t, off course.; Tue Nov 28 03:02:57 +0000 2017
-spotify-this-song: waiting-for-tonightspotify-this-song: waiting-for-tonightspotify-this-song: waiting-for-tonightspotify-this-song: waiting-for-tonightspotify-this-song: waiting-for-tonightspotify-this-song: waiting-for-tonightspotify-this-song: waiting-for-tonightspotify-this-song: waiting-for-tonightspotify-this-song: waiting-for-tonightspotify-this-song: waiting-for-tonight
+Command: spotify: thunder; is created at 04/01/2018 14:36:54
+Command: do: undefined; is created at 04/01/2018 14:38:36
+Command: do ; is created at 04/01/2018 14:45:25
+Command: movie home-alone; is created at 04/01/2018 14:46:15
+Command: do ; is created at 04/01/2018 15:00:23
+Command: my-tweets ; is created at 04/01/2018 15:00:44
+Command: my-tweets ; is created at 04/01/2018 15:08:31
+Command: my-tweets ; is created at 04/01/2018 15:09:05
+Command: my-tweets ; is created at 04/01/2018 15:09:29
+Command: my-tweets ; is created at 04/01/2018 15:09:46
+Command: my-tweets bazy1983; is created at 04/01/2018 15:11:57
+Command: false bazy1983; is created at 04/01/2018 15:12:36
+Command: false ; is created at 04/01/2018 15:14:10
+Command: false ; is created at 04/01/2018 15:14:30
+Command: do ; is created at 04/01/2018 15:15:21
+Command: my-tweets bazy1983; is created at 04/01/2018 15:15:53
+Command: my-tweets ; is created at 04/01/2018 15:15:59
+Command: my-tweets AndroidAuth; is created at 04/01/2018 15:16:52
+Command: spotify happy; is created at 04/01/2018 15:33:07
+Command: do ; is created at 04/01/2018 15:34:44
+Command: do ; is created at 04/01/2018 15:35:12
+Command: movie home-alone; is created at 04/01/2018 15:38:09
+Command: spotify fireworks; is created at 04/01/2018 15:39:55
+Command: spotify firework; is created at 04/01/2018 15:40:20
+Command: Spotify firework; is created at 04/01/2018 15:40:57
+Command: spotify firework; is created at 04/01/2018 15:41:41
+Command: spotify firewoRk; is created at 04/01/2018 15:42:24
+Command: do ; is created at 04/01/2018 15:42:55
+Command: my-tweets ; is created at 04/01/2018 15:43:41
