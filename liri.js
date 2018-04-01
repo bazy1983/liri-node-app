@@ -5,6 +5,7 @@ var Twitter = require('twitter');
 var Spotify = require('node-spotify-api');
 var omdbApi = require('omdb-client');
 var fs = require("fs");
+var chalk = require("chalk");
 
 
 
@@ -12,37 +13,45 @@ var myCommand = process.argv;
 
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
-var query = myCommand[3] // search query
+var liriCommand = myCommand[2]
+var query = myCommand[3]; // search query
+
+if (typeof(myCommand[4] != "undefined")){
+    console.log(chalk.red("please use dash to search multi-word queries!"))
+    process.exit();
+}
 
 console.log ("You can ask Liri: my-tweets, spotify, movie")
+console.clear();
 
 
 // record search log
 function writeToFile (x){
     fs.appendFile('log.txt', x, function (err) {
-        if (err) return console.log(err);
-        console.log('Appended!');
+        if (err) return err;
+        console.log(chalk.red('Command Saved!'));
      });
-
 }
+
+writeToFile(`${liriCommand}: ${query}`)
 
 
 // switch between questions
-switch (myCommand[2]) {
+switch (liriCommand) {
 
     case ("my-tweets"): 
     tweetCommand();
     break;
 
-    case ("spotify"): 
+    case ("spotify-this-song"): 
     spotifyCommand(query);
     break;
 
-    case ("movie"):
+    case ("movie-this"):
     movieCommand(query)
     break;
 
-    case("file"):
+    case("do-what-it-says"):
     readFile();
     break;
 }
@@ -68,14 +77,19 @@ function tweetCommand() {
 function spotifyCommand(x) {
     spotify.search({ type: 'track', query: x, limit: 1 }, function(err, data) {
         if (err) {
-          return console.log('Error occurred: ' + err);
+          return console.log('Error occurred: ' + chalk.red(err));
         }
        
       //console.log(data); 
       var tracks = data.tracks.items;
-      console.log("********* ITEMS ***********")
+      console.log(chalk.blue("********* Searching Spotify ***********"))
       
-      console.log(`${tracks[0].album.name} by ${tracks[0].artists[0].name}: ${tracks[0].external_urls.spotify}`);
+      
+      console.log(`Track: ${tracks[0].name}
+Album: ${tracks[0].album.name}
+Artist: ${tracks[0].artists[0].name}
+Album URL: ${tracks[0].external_urls.spotify}
+Track Preview: ${tracks[0].preview_url}`);
       });
 }
 
