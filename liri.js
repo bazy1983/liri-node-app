@@ -16,12 +16,13 @@ var client = new Twitter(keys.twitter);
 var liriCommand = myCommand[2]
 var query = myCommand[3]; // search query
 
-if (typeof(myCommand[4] != "undefined")){
+if (myCommand[4] != undefined){
+    console.clear();
     console.log(chalk.red("please use dash to search multi-word queries!"))
     process.exit();
 }
 
-console.log ("You can ask Liri: my-tweets, spotify, movie")
+console.log (chalk.inverse("You can ask Liri: my-tweets, spotify, movie"));
 console.clear();
 
 
