@@ -11,32 +11,27 @@ var date = require("date-and-time");
 
 
 
-var myCommand = process.argv;
+
 
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
-var liriCommand = myCommand[2]
-if (liriCommand != undefined) liriCommand = liriCommand.toLowerCase(); //standardize
-var query = myCommand[3]; // search query
 var now = new Date();
 var timeNow = date.format(now, 'MM/DD/YYYY HH:mm:ss');
+let [node, file, liriCommand, ...param] = process.argv; //distructuring assignment of array
+
+if (liriCommand != undefined) liriCommand = liriCommand.toLowerCase(); //standardize
 
 console.clear();
 console.log (chalk.inverse("You can ask Liri: my-tweets, spotify song-name, movie movie-name, do"));
 
 //validation to prevent user from sending an empty request!!
-if ((liriCommand === "spotify" || liriCommand  === "movie") && query == undefined){
-    console.clear();
+if ((liriCommand === "spotify" || liriCommand  === "movie") && param.length === 0){
     console.log(chalk.red(`Please search something. ie: ${liriCommand} something`))
     process.exit();
+} else {
+    var query = param.join("-"); // concatinate search query
 }
 
-//validation to prevent user from using spaces when querying stuff!!
-if (myCommand[4] != undefined){
-    console.clear();
-    console.log(chalk.red("Please use dash to search multi-word queries!"))
-    process.exit();
-}
 
 //initiate command
 doSomething(liriCommand, query);
@@ -97,6 +92,7 @@ var params = {
     incTomatoes: true
 }
 omdbApi.get(params, function(err, data) {
+    if(err) return console.log (chalk.yellow("Movie name is either incorrect or not found!"))
     // process response...
     //console.log(data)
     console.log(`Title: ${data.Title}.
@@ -118,7 +114,7 @@ function readFile (){
         console.log(`Your command is: ${data}`)
         var newCommand = data.split(","),
         newCommandName = newCommand[0],
-        newCommandQuery = newCommand[1],
+        newCommandQuery = newCommand[1];
         newCommandQuery = newCommandQuery.replace(/"/g,''); //remove any quotation marks
         var query = newCommandQuery.replace(/\s/g,'-')// replaces all spaces represented as \s with dashes
         doSomething(newCommandName, query);
