@@ -52,3 +52,15 @@ Command: spotify I-Want-it-That-Way; is created at 04/01/2018 23:25:05
 Command: spotify thunder; is created at 04/01/2018 23:26:28
 Command: movie the-lion-king; is created at 04/01/2018 23:27:45
 Command: movie the-lion-kin; is created at 04/01/2018 23:29:17
+Command: spotify without-you; is created at 04/02/2018 12:44:56
+Command: spotify hello; is created at 04/02/2018 12:45:27
+Command: my-tweets ; is created at 04/03/2018 14:27:47
+Command: my-tweets ; is created at 04/03/2018 14:29:08
+Command: do ; is created at 04/03/2018 14:29:41
+Command: movie home-alone; is created at 04/03/2018 14:29:41
+Command: read-file ; is created at 04/03/2018 14:55:18
+Command: movie home-alone; is created at 04/03/2018 14:55:18
+Command: read-file command.txt; is created at 04/03/2018 14:59:55
+Command: spotify I-Want-it-That-Way; is created at 04/03/2018 14:59:55
+Command: read-file command.txt; is created at 04/03/2018 15:00:38
+Command: spotify I-Want-it-That-Way; is created at 04/03/2018 15:00:38
