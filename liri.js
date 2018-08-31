@@ -50,7 +50,7 @@ function writeToFile(x, y) { //x is the command and y is the query
 function tweetCommand(y) {
     console.log(chalk.blue("********* Searching Twitter ***********"))
     // twitter GET request
-    var params = { user_id: y };
+    var params = { screen_name: y };
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
 
         if (!error) {
